@@ -86,9 +86,10 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function switchCheckbox(id, check) {
+function switchCheckbox(id, check, color) {
     checkbox = document.getElementById(id);
     checkbox.checked = check;
+    checkbox.style.background = color;
 }
 
 //##############################################  move #################################################################################################
@@ -96,7 +97,7 @@ function updateSnake() {
     clearPlane();
     for (var i = 0; i < snake.body.length; i++) {
         id = createCheckboxId(snake.body[i].x, snake.body[i].y);
-        switchCheckbox(id, true);
+        switchCheckbox(id, true, "#f01ddf");
     }
     showCookies();
 }
@@ -105,14 +106,14 @@ function clearPlane() {
     for (var i = 0; i < WIDTH; i++) {
         for (var j = 0; j < HEIGTH; j++) {
             id = createCheckboxId(i, j);
-            switchCheckbox(id, false);
+            switchCheckbox(id, false, "#c6c6c6");
         }
     }
 }
 
 function showCookies() {
     id = createCheckboxId(cookies.x, cookies.y);
-    switchCheckbox(id, true);
+    switchCheckbox(id, true, "#00ff00");
 }
 
 //############################################## control #################################################################################################
